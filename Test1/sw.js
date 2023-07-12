@@ -1,4 +1,4 @@
-self.addEventListener('install',(e)=>{
+/*self.addEventListener('install',(e)=>{
     console.log('Install Event');
     let installPromise = new Promise((resolve)=>{
         //async tasks
@@ -9,15 +9,23 @@ self.addEventListener('install',(e)=>{
 });
 self.addEventListener('activate',(e)=>{
     console.log('Activate Event');
-});
+});*/
 
 //fetch event listener
 
 self.addEventListener('fetch',(e)=>{
-    if(e.request.url.endsWith('css')){
-        console.log('fetch event FOR STYLE : '+e.request.url);
-    }else{
-        console.log('fetch event: '+e.request.url);
-    }
+    console.log('Fetch event: '+e.request.url);
+  /*  if(e.request.url.endsWith('/camera_feed.html')){
+        fetch(e.request).then((res)=>{
+            if(res.ok){
+                return res;
+            }
+            else{
+                return new Response('Camera feed not available');
+            }
+        });
+    }*/
+
+
 
 });
