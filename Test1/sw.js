@@ -14,17 +14,19 @@ self.addEventListener('activate',(e)=>{
 //fetch event listener
 
 self.addEventListener('fetch',(e)=>{
-    console.log('Fetch event: '+e.request.url);
-  /*  if(e.request.url.endsWith('/camera_feed.html')){
-        fetch(e.request).then((res)=>{
-            if(res.ok){
-                return res;
-            }
-            else{
-                return new Response('Camera feed not available');
-            }
-        });
-    }*/
+    //console.log('Fetch event: '+e.request.url);
+    if(e.request.url.endsWith('/camera_feed.html')){
+        e.respondWith(
+            fetch(e.request).then((res)=>{
+                if(res.ok){
+                    return res;
+                }
+                else{
+                    return new Response('Camera feed not available');
+                }
+            })
+        );
+    }
 
 
 

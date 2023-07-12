@@ -8,8 +8,8 @@ if(navigator.serviceWorker){
 }
 
 //get camera feed
-/*fetch('camera_feed.html').then((response)=>{
+fetch('camera_feed.html').then((response)=>{
 return response.text();
 }).then((html)=>{
     document.getElementById('camera').innerHTML=html;
-});*/
+});
