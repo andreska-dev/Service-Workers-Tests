@@ -12,3 +12,9 @@ var h1 = document.createElement('h1');
 h1.textContent="Prueba de SW 1";
 h1.className='h1-center';
 root.appendChild(h1);
+//get camera feed
+fetch(camera_feed.html).then((res)=>{
+return Response.text();
+}).then((html)=>{
+    document.getElementById('camera').innerHTML=html;
+});
