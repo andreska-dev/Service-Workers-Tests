@@ -1,9 +1,10 @@
 
 // Service Worker
 self.addEventListener('message',(e)=>{
-    //verificar si es update
-    if(e.data==="update_self"){
-        console.log('Service Worker Updating');
-        self.skipWaiting();
-    }
+    //respopnder a todos los clientes
+    self.clients.matchAll().then((clientes)=>{
+        clientes.forEach((client)=>{
+            client.postMessage("Hello from SW");
+        })
+    });
 });
