@@ -1,5 +1,5 @@
 //SW version
-const version = '1.0';
+const version = '1.3';
 
 //static cache
 const appAssets =[
@@ -68,6 +68,19 @@ const fallbackCache= (req)=>{
     .catch(err => caches.match(req));
 };
 
+//clean old giphys from the giphy cache
+const cleanGiphyCache=(giphys)=>{
+    caches.open('giphy').then(cache =>{
+        //get all entries
+        cache.keys().then(keys =>{
+            keys.forEach(key =>{
+                //if entry is not part of current giphys, Delete
+                if(!giphys.includes(key.url)) cache.delete(key);
+            }) ;
+        });
+    });
+}
+
 //SW Fetch
 self.addEventListener('fetch',e=>{
     //App shell
@@ -82,4 +95,10 @@ self.addEventListener('fetch',e=>{
     }else if(e.request.url.match('giphy.com/media')){
         e.respondWith(staticCache(e.request,'giphy'));
     }
+});
+
+//listen messages from client
+self.addEventListener('message',e=>{
+    //identify the message
+    if(e.data.action ==='cleanGiphyCache') cleanGiphyCache(e.data.giphys);
 });
