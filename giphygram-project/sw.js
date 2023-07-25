@@ -36,7 +36,7 @@ self.addEventListener('activate',e=>{
 });
 
 //static cache
-const staticCache = (req)=>{
+const staticCache = (req,cacheName=`static-${version}`)=>{
     return caches.match(req).then(cachedRes =>{
        //return cached if found
        if(cachedRes) return cachedRes;
@@ -44,7 +44,7 @@ const staticCache = (req)=>{
        //fallback to network
         return fetch(req).then(networkRes =>{
            //update cache with new response
-           caches.open(`static-${version}`)
+           caches.open(cacheName)
                .then(cache => cache.put(req,networkRes));
            //return clone
             return networkRes.clone();
@@ -52,10 +52,34 @@ const staticCache = (req)=>{
     });
 }
 
+//Network with cache fallback
+const fallbackCache= (req)=>{
+    //try network
+    return fetch(req).then(networkRes =>{
+       //check res is ok, else go to cache
+       if(!networkRes.ok)throw 'Fetch Error';
+       //update cache
+        caches.open(`static-${version}`)
+            .then(cache => cache.put(req,networkRes));
+        //return clone to network response
+        return networkRes.clone();
+    })
+    //try cache
+    .catch(err => caches.match(req));
+};
+
 //SW Fetch
 self.addEventListener('fetch',e=>{
     //App shell
     if(e.request.url.match(location.origin)){
         e.respondWith(staticCache(e.request));
+
+    //giphy API
+    }else if(e.request.url.match('api.giphy.com/v1/gifs/trending')){
+        e.respondWith(fallbackCache(e.request));
+
+    //Giphy media
+    }else if(e.request.url.match('giphy.com/media')){
+        e.respondWith(staticCache(e.request,'giphy'));
     }
 });
