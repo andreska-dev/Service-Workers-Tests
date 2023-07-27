@@ -1,0 +1,43 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Darkh\AppData\Local\node\corepack\yarn\1.22.19\bin\yarn.js add bootstrao
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\Darkh\Documents\Programs\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Bandizip\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Darkh\AppData\Local\Microsoft\WindowsApps;C:\Users\Darkh\AppData\Local\GitHubDesktop\bin;C:\Users\Darkh\.dotnet\tools;C:\Users\Darkh\AppData\Local\gitkraken\bin;C:\Users\Darkh\AppData\Roaming\npm;C:\Program Files (x86)\Nmap;C:\PHP\;C:\Program Files (x86)\BrowserStackLocal\
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/bootstrao: Not found
+      at params.callback [as _callback] (C:\Users\Darkh\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:66145:18)
+      at self.callback (C:\Users\Darkh\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Users\Darkh\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (C:\Users\Darkh\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "PhotoMsg",
+    "version": "1.0.0",
+    "description": "Simple photo-caption PWA",
+    "main": "server/",
+    "author": "Andres Mendez <redkillah420@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
