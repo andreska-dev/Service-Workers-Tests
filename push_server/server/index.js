@@ -1,5 +1,6 @@
 //Modules
 const http = require('http')
+const push = require('./push')
 //create http server
 http.createServer((request,response)=>{
     //Enable CORS
@@ -19,8 +20,8 @@ http.createServer((request,response)=>{
 
      //public key
     } else if(url.match(/^\/key\/?/)){
-        //respopnse with public key
-        response.end('public key')
+        //Get key from push module
+        response.end(push.getkey())
 
      //push notification
     } else if(method ==='POST'&&url.match(/^\/push\/?/)){
