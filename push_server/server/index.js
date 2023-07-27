@@ -33,6 +33,9 @@ http.createServer((request,response)=>{
         let body =[]
         //read body stream
         request.on('data',chunk=> body.push(chunk)).on('end',()=>{
+            //send notification with post body
+            push.send(body.toString());
+
             response.end('Push sent')
         });
 
