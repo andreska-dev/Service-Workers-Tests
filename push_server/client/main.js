@@ -46,7 +46,27 @@ const subscribe =()=>{
     if(!swReg) return console.error('Service worker registration not found');
     //get application server key from push server
     getApplicationServerKey().then(key =>{
+        //subscribe
         swReg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:key})
+            .then(res => res.toJSON())
+            .then(subscription => {
+                //pass subscription to server
+                fetch(`${serverUrl}/subscribe`, {method:'POST',body:JSON.stringify(subscription)})
+                    .then(setSubscribedStatus)
+                    .catch(unsubscribe)
+            //catch subscription error
+            }).catch(console.error)
+    })
+}
+
+
+//Unsubscribe from push service
+const unsubscribe =()=>{
+    //unsubscribe and update UI
+    swReg.pushManager.getSubscription().then(subscription=>{
+        subscription.unsubscribe().then(()=>{
+            setSubscribedStatus(false)
+        })
     })
 }
 
