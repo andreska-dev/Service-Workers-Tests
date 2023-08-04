@@ -8,7 +8,22 @@
     <title>Photo Message</title>
     <!-- Styles -->
     <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/modules/toastr/build/toastr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style media="screen">
+        #toast-container{
+            top:0;
+            left: 0;
+            width: 100%;
+        }
+        #toast-container > div{
+            opacity: 1;
+            box-shadow: 0 0 2rem rgba(0,0,0,0.75);
+            border-radius: 0;
+            width: 100%;
+        }
+    </style>
 
 </head>
 <body class="bg-info">
@@ -49,5 +64,19 @@
     <!-- Scripts -->
 <script src="/modules/jquery/dist/jquery.min.js"></script>
 <script src="/modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/modules/toastr/build/toastr.min.js"></script>
+<script src="/main.js"></script>
+
+    <!-- Init App if supported-->
+    <script>
+        //check compatibility
+        if('mediaDevices' in navigator){
+            //Init app
+            _init();
+        } else {
+            //show notification
+            toastr.error(null,'This app is not supported by your browser.', {timeout:30000});
+        }
+    </script>
 </body>
 </html>
