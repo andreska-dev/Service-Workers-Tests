@@ -23,4 +23,27 @@ class Camera {
         this.stream.getTracks()[0].stop();
     }
 
+    //capture photo from camera stream
+    take_photo(){
+        //create a <canvas> element to render the photo
+        let canvas = document.createElement('canvas');
+        //set canvas dimensions same as video stream
+        canvas.setAttribute('width',600);
+        canvas.setAttribute('height',600);
+
+        //get canvas context
+        let context = canvas.getContext('2d');
+        //draw image onto the canvas
+        context.drawImage(this.video_node,0,0,canvas.width,canvas.height);
+
+        //get the canvas image as a data url
+        this.photo = context.canvas.toDataURL();
+
+        //Destroy canvas
+        context = null;
+        canvas = null;
+
+        return this.photo;
+    }
+
 }

@@ -15,7 +15,9 @@ const _init=()=>{
 
     //take photo
     $('#shutter').on("click",()=>{
-        console.log('Take photo');
+        let photo = camera.take_photo();
+        //show photo preview in camera button
+        $('#camera').css('background-image', `url(${photo})`).addClass('withphoto');
     });
 
     //submit message
@@ -23,15 +25,24 @@ const _init=()=>{
         //get caption
         let caption =$('#caption').val();
         //check message is ok
-        if(!caption){
+        if(!camera.photo || !caption){
             //show notification and return
             toastr.warning('Photo & Caption required.', 'Incomplete Message');
             return;
         }
-        console.log('adding messsage');
-        console.log(caption);
 
-        //reset caption field on success
+        //render new message in feed
+        renderMessage({photo:camera.photo, caption});
+
+        //reset caption and photo field on success
         $('#caption').val('');
+        $('#camera').css('background-image','').removeClass('withphoto');
+        camera.photo = null;
     });
+
+    //create new message element
+    const renderMessage= (message) =>{
+        //message HTML
+
+    }
 }
