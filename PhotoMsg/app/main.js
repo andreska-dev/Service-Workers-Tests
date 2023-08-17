@@ -30,7 +30,6 @@ const _init=()=>{
             toastr.warning('Photo & Caption required.', 'Incomplete Message');
             return;
         }
-
         //render new message in feed
         renderMessage({photo:camera.photo, caption});
 
@@ -43,6 +42,27 @@ const _init=()=>{
     //create new message element
     const renderMessage= (message) =>{
         //message HTML
+        let msgHTML = `
+        <div style="display: none" class="row message bg-light mb-2 rounded shadow">
+            <div class="col-2 p-1">
+                <img src="${message.photo}" class="photo w-100 rounded">
+            </div>
+            <div class="col-10 p-1">
+                ${message.caption}
+            </div>
+        </div>
+        `;
+        //prepend to container messages
+        $(msgHTML).prependTo('#messages').show(500)
 
-    }
+        //bind a new listener to the img to show in modal
+            .find('img').on("click",showPhoto);
+    };
+    //show message photo in modal
+    const showPhoto=(e)=>{
+        let photoSrc = $(e.currentTarget).attr('src');
+        //set to photoframe in modal
+        $('#photoframe img').attr('src',photoSrc);
+        $('#photoframe').modal('show');
+    };
 }
