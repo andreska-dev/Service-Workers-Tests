@@ -5,6 +5,32 @@ const camera = new Camera(document.getElementById('player'));
 //main app logic
 
 const _init=()=>{
+
+    //innit new Message instance
+    const messages = new Message();
+
+    //notify user of connection error
+    window.addEventListener('messages_error',()=>{
+        toastr.error('Messages could not be retrieved. <br> Will keep trying.','Network connection error');
+    });
+
+    //listen for new message event
+    window.addEventListener('new_message',(e)=>{
+        renderMessage(e.detail);
+    });
+
+    //listen for existing messages from server
+    window.addEventListener('messages_ready',()=>{
+        //remove loader
+        $('#loader').remove();
+        //check some messages exists
+        if(messages.all.length==0) toastr.info('Add the first message','no messages');
+        //empty out existing messages if this update is from reconnection
+        $('#messages').empty();
+        //loop and render all messages
+        messages.all.reverse().forEach(renderMessage);
+    });
+
     //switch on camera viewfinder
     $('#viewfinder').on("show.bs.modal",()=>{
         camera.switch_on();
@@ -30,8 +56,10 @@ const _init=()=>{
             toastr.warning('Photo & Caption required.', 'Incomplete Message');
             return;
         }
+        //add new message
+        let message = messages.add(camera.photo,caption);
         //render new message in feed
-        renderMessage({photo:camera.photo, caption});
+        renderMessage(message);
 
         //reset caption and photo field on success
         $('#caption').val('');
