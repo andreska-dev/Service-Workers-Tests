@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbf881f3-9656-48ab-8126-032d59647f77" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/giphygram-project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/flame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-114x114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-120x120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-152x152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-57x57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-60x60.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-72x72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/apple-touch-icon-76x76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/favicon-128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/favicon-196x196.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/favicon-96x96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/mstile-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/mstile-150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/mstile-310x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/mstile-310x310.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icons/mstile-70x70.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/launch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/sync.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,20 +23,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Darkh/Desktop/PWAs/Service-Workers-Tests/push_server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Darkh/Desktop/PWAs/Service-Workers-Tests/Push Server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,6 +46,13 @@
       <option name="presentableId" value="Default" />
       <updated>1690392371905</updated>
       <workItem from="1690392374353" duration="4027000" />
+      <workItem from="1692480001868" duration="145000" />
+      <workItem from="1692480218096" duration="198000" />
+      <workItem from="1692480467047" duration="2422000" />
+      <workItem from="1692673858289" duration="12000" />
+      <workItem from="1692673893788" duration="7000" />
+      <workItem from="1692674580861" duration="656000" />
+      <workItem from="1693171166640" duration="11000" />
     </task>
     <servers />
   </component>
