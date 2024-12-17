@@ -3,7 +3,7 @@ class Message{
         this.messages =[];
 
         //connect to socket server
-        this.socket = io('http://localhost:8000');
+        this.socket = io('https://photo-message.onrender.com');
         //handle connection error
         this.socket.once('connect_error',()=>{
             //notify main.js via an event
