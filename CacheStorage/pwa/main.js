@@ -31,13 +31,13 @@ if (window.caches) {
     caches.open('pwa-v1.1').then((cache) => {
         //incluir el indez.html en el cache
         //este metodo hace un fetch y guarda el resultado en el cache
-        /*cache.addAll([
+        cache.addAll([
             '/index.html',
             '/style.css',
             'main.js',
-        ]);*/
+        ]);
         //eliminar un elemento del cache
-        //cache.delete('style.css');
+        cache.delete('style.css');
         
 
         //obtener la respuesta del fetch
