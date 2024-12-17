@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Push Server Client</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    <h1>Push Notifications</h1><hr>
+    <h1>Push Notifications</h1>
+    <hr>
+
+    <!-- Subscribe Section -->
     <div id="Subscribe">
         <p>Subscribe to receive Push notifications</p>
         <button onclick="subscribe()">Subscribe</button>
     </div>
+
+    <!-- Unsubscribe Section -->
     <div id="Unsubscribe" class="hidden">
         <p>Unsubscribe from Push notifications</p>
         <button onclick="unsubscribe()">Unsubscribe</button>
     </div>
+
+    <hr>
+
+    <!-- Command Display Section -->
+    <h2>Send Push Notification Command</h2>
+    <p>Use the following command in your terminal to send a push notification:</p>
+    <textarea id="push-command" rows="4" cols="80" readonly>
+curl -X POST -d "hello world" http://localhost:3333/push
+    </textarea>
+
     <script src="main.js"></script>
 </body>
 </html>

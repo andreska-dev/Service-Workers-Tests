@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            resize: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Push Notification Command</h1>
+    <p>Write the message below and click the button to send a Push Notification:</p>
+    
+    <!-- Text area to allow the user to input the message -->
+    <textarea id="messageInput" placeholder="Enter your message here..."></textarea>
+    
+    <br><br>
+
+    <!-- Button to trigger push notification -->
+    <button id="sendPushButton">Send Push Notification</button>
+
+    <hr>
+
+    <h2>Send Push Notification Command</h2>
+    <p>Use the following command in your terminal to send a push notification:</p>
+    <textarea id="push-command" rows="4" cols="80" readonly>
+curl -X POST -d "hello world" https://push-server-1.netlify.app/push
+    </textarea>
+
+    <script>
+        // Add event listener to the button
+        document.getElementById('sendPushButton').addEventListener('click', () => {
+            // Get the text from the input field
+            const pushData = document.getElementById('messageInput').value;
+
+            // Check if the message is empty
+            if (!pushData.trim()) {
+                alert('Please enter a message.');
+                return;
+            }
+
+            // Make a POST request to the server to trigger the push notification
+            fetch('https://push-server-1.netlify.app/push', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+                body: pushData, // Send the message as plain text
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Show success message
+                alert('Push notification sent successfully!');
+                console.log(data); // Optional: Log the response from the server
+            })
+            .catch(error => {
+                // Show error message
+                alert('Failed to send push notification');
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ let swReg
 
 
 //push server url
-const serverUrl='http://localhost:3333'
+const serverUrl='https://push-server-1.netlify.app'
 
 
 //Update UI for subscribe status

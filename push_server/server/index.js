@@ -1,49 +1,60 @@
-//Modules
-const http = require('http')
-const push = require('./push')
-//create http server
-http.createServer((request,response)=>{
-    //Enable CORS
-    response.setHeader('Access-Control-Allow-Origin','*')
+// Modules
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const push = require('./push');
 
-    //get requested VARS
-    const {url,method} =request;
+// Create HTTP server
+http.createServer((request, response) => {
+    // Enable CORS
+    response.setHeader('Access-Control-Allow-Origin', '*');
 
-    //subscribe
-    if(method === 'POST' && url.match(/^\/subscribe\/?/)){
-        //get post body
-        let body =[]
-        //read body stream
-        request.on('data',chunk=> body.push(chunk)).on('end',()=>{
-            //parse subscription body to object
-            let subscription = JSON.parse(body.toString())
-            //store subscription from push notifications
-            push.addSubscription(subscription)
-            response.end('Subscribed')
-        })
+    // Get requested URL and method
+    const { url, method } = request;
 
-     //public key
-    } else if(url.match(/^\/key\/?/)){
-        //Get key from push module
-        response.end(push.getkey())
+    // Serve the index.html when the root URL is accessed
+    if (method === 'GET' && url === '/') {
+        // Set the content-type for the HTML file
+        response.setHeader('Content-Type', 'text/html');
 
-     //push notification
-    } else if(method ==='POST'&&url.match(/^\/push\/?/)){
-        //get post body
-        let body =[]
-        //read body stream
-        request.on('data',chunk=> body.push(chunk)).on('end',()=>{
-            //send notification with post body
-            push.send(body.toString());
+        // Send the content of the index.html file
+        fs.readFile(path.join(__dirname, 'index.html'), 'utf8', (err, data) => {
+            if (err) {
+                response.statusCode = 500;
+                response.end('Error loading index.html');
+            } else {
+                response.end(data);
+            }
+        });
+    }
 
-            response.end('Push sent')
+    // Subscribe to notifications
+    else if (method === 'POST' && url.match(/^\/subscribe\/?/)) {
+        let body = [];
+        request.on('data', chunk => body.push(chunk)).on('end', () => {
+            let subscription = JSON.parse(body.toString());
+            push.addSubscription(subscription);
+            response.end('Subscribed');
         });
 
-    //not found
-    } else{
-        response.status=404;
+    // Get public key for push notifications
+    } else if (url.match(/^\/key\/?/)) {
+        response.end(push.getkey());
+
+    // Push notification
+    } else if (method === 'POST' && url.match(/^\/push\/?/)) {
+        let body = [];
+        request.on('data', chunk => body.push(chunk)).on('end', () => {
+            push.send(body.toString());
+            response.end('Push sent');
+        });
+
+    // 404 for unknown requests
+    } else {
+        response.statusCode = 404;
         response.end('Error: Unknown Request');
     }
 
-    //start the server
-}).listen(3333,()=>{console.log('Server Running')})
+}).listen(3333, () => {
+    console.log('Server Running on port 3333');
+});
