@@ -19,7 +19,7 @@ if (navigator.serviceWorker) {
   // Register the SW
   navigator.serviceWorker.register('/sw.js').then((registration) => {
 
-    let pubKey='BIHHbD47rM37vcEWWU_SpoaLBekbRxakJtHRZniianTGlrzXWP91UraTnGKjVXOh4b97FxD_mJZfiUZxMqsP46g';
+    let pubKey='BF5dvlDtrBPhBXAatmz1JqILzUdRoetryQ2g6mAuYYdmxPd7u1w7QyZwfdrfrTcxt0Q9i2hC8FkV1TOZocjuukw';
 
     registration.pushManager.getSubscription().then((sub) => {
       //si encuentra la suscripcion
